@@ -1,0 +1,79 @@
+package rewards;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
+@EnableConfigurationProperties(RewardsRecipientProperties.class)
+@ConfigurationProperties("rewards.recipient")
+// TODO-06 : Capture properties into a class using @ConfigurationProperties
+// - Note that application.properties file already contains the following properties
+//
+//    rewards.recipient.name=John Doe
+//    rewards.recipient.age=10
+//    rewards.recipient.gender=Male
+//    rewards.recipient.hobby=Tennis
+//
+// - Annotate this class with @ConfigurationProperties
+//   with prefix attribute set to a proper value
+// - Create fields (along with needed getters/setters) that reflect the
+//   properties above in the RewardsRecipientProperties class
+// - Use one of the following 3 schemes to enable @ConfigurationProperties
+//   (1) Add @EnableConfigurationProperties(RewardsRecipientProperties.class)
+//       to the RewardsApplication class
+//   (2) Add @ConfigurationPropertiesScan to RewardsApplication class or
+//   (3) Annotate this class with @Component
+// - Implement a new command line runner that displays the name of the rewards
+//   recipient when the application gets started
+@Component
+public class RewardsRecipientProperties {
+
+	private CommandLineRunner commandLineRunner;
+
+	private String name;
+
+	private int age;
+
+	private String gender;
+
+	private String hobby;
+
+	public RewardsRecipientProperties(CommandLineRunner commandLineRunner){
+		this.commandLineRunner = commandLineRunner;
+	}
+
+	public String getHobby() {
+		return hobby;
+	}
+
+	public void setHobby(String hobby) {
+		this.hobby = hobby;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+}
