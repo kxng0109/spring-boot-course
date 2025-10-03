@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -43,6 +44,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 //           The section titled "Build and Run using Command Line tools".
 
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class) //No need to exclude it given that Spring Boot will use application defined DataSource bean over auto-configured one.
+@EnableConfigurationProperties(RewardsRecipientProperties.class)
 @Import(RewardsConfig.class)
 public class RewardsApplication {
     static final String SQL = "SELECT count(*) FROM T_ACCOUNT";

@@ -7,7 +7,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
-@EnableConfigurationProperties(RewardsRecipientProperties.class)
 @ConfigurationProperties("rewards.recipient")
 // TODO-06 : Capture properties into a class using @ConfigurationProperties
 // - Note that application.properties file already contains the following properties
@@ -28,7 +27,6 @@ import org.springframework.stereotype.Component;
 //   (3) Annotate this class with @Component
 // - Implement a new command line runner that displays the name of the rewards
 //   recipient when the application gets started
-@Component
 public class RewardsRecipientProperties {
 
 	private CommandLineRunner commandLineRunner;
